@@ -63,7 +63,7 @@ Now your Cypress project is configured to use the custom environment variables s
     ```
 
   - Development Environment:
-  ```sh
+    ```sh
     yarn cy:open:dev 
     ```
     ```sh
