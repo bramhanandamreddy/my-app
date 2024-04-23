@@ -56,10 +56,14 @@ Now your Cypress project is configured to use the custom environment variables s
     ```sh
     yarn run cy:open:local 
     ```
+
     ```sh
     #Headless mode
     yarn run cy:run:local
+    ```
+
   - Development Environment:
+  ```sh
     yarn cy:open:dev 
     ```
     ```sh
