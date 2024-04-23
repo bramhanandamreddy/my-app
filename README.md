@@ -1,46 +1,68 @@
-# Getting Started with Create React App
+## Test Automation - Initial Setup process for Cypress and Cucumber
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Purpose of Cypress Tests
+Cypress E2E testing ensures that the application flow operates as expected by testing the entire software product from end to end. It specifies the product’s system dependencies and guarantees that all integrated components function correctly. In this repository we are writing the Cypress tests for the API endpoints.
+## Installation
+Follow these steps to install and set up the Cloud Device Updater Services package on your system:
+### Prerequisites
+- [NVM](https://github.com/nvm-sh/nvm#installing-and-updating) recommended for managing node version if you are working with another repository.
+- [Yarn](https://classic.yarnpkg.com/lang/en/docs/cli/install/) (recommended)
+### Steps
+- Clone the repository from GitHub:
+    ```bash
+    git clone https://github.com/tandemdiabetes/web-tdu-bff
 
-## Available Scripts
+   ```
+- Change your current working directory to the project folder:
+    ```sh
+    cd web-tdu-bff
+    ```
+- Change the directory to the folder "e2e":
+    ```sh
+    cd e2e
+    ```
+- Install the project dependencies using Yarn:
+    ```sh
+    yarn install
+    ```
+- Run ESLint to lint the project:
+    ```sh
+    yarn lint
+    ```
+    You can also automatically fix linting issues using:
+    ```sh
+    yarn lint:fix
+    ```
+## Add environment file
+- **Locate your Cypress project directory:** Make sure you are in the root directory of your Cypress project where your cypress.env.example are located.
 
-In the project directory, you can run:
+- **Create a copy of cypress.env.example file:** If you don't already have a cypress.env.json file, you can start by copying your example file. Make sure to update the values based on your specific environment and requirements.
 
-### `yarn start`
+- **Save the changes:** After updating the environment variables in cypress.env.json, save the file.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Now your Cypress project is configured to use the custom environment variables specified in cypress.env.json during test execution. Cypress will automatically load these environment variables for your tests.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Running cypress tests
+- To run Cypress tests , open the Cypress Test Runner:
+    ```sh
+    yarn cy:open
+    ```
+- To run Cypress tests in headless mode:
+    ```sh
+    yarn cy:run
+    ```
+- You can run tests in specific environments using the following commands:
+  - Local Environment: (If you want to run it locally then you need to setup mTDU backend project and run the project locally.)
+    ```sh
+    yarn run cy:open:local 
+    ```
+    ```sh
+    #Headless mode
+    yarn run cy:run:local
+  - Development Environment:
+    yarn cy:open:dev 
+    ```
+    ```sh
+    # Headless mode
+    yarn run cy:run:dev
+    ``` 
